@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://p-15e51e28b0.keocqiu.cn/sitemap.xml

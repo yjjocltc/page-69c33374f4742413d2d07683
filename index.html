@@ -1,0 +1,334 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>泡泡Dog｜节点订阅与小工具清单</title><meta name="description" content="泡泡Dog是一个面向个人与小团队的节点订阅品牌，按月或按年付费，提供基础版、旗舰版与团队版三档方案，支持多设备同时在线，覆盖流媒体与游戏场景。"><meta name="keywords" content="泡泡Dog,节点订阅,客户端,套餐,常见问题"><meta name="robots" content="index,follow"><link rel="canonical" href="https://p-15e51e28b0.keocqiu.cn/"><meta property="og:type" content="website"><meta property="og:title" content="泡泡Dog｜节点订阅与小工具清单"><meta property="og:description" content="泡泡Dog是一个面向个人与小团队的节点订阅品牌，按月或按年付费，提供基础版、旗舰版与团队版三档方案，支持多设备同时在线，覆盖流媒体与游戏场景。"><meta property="og:url" content="https://p-15e51e28b0.keocqiu.cn/"><meta property="og:site_name" content="泡泡Dog"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://p-15e51e28b0.keocqiu.cn/", "name": "泡泡Dog｜节点订阅与小工具清单", "description": "泡泡Dog是一个面向个人与小团队的节点订阅品牌，按月或按年付费，提供基础版、旗舰版与团队版三档方案，支持多设备同时在线，覆盖流媒体与游戏场景。", "inLanguage": "zh-CN"}</script><meta name="publisher-task" content="69c33374f4742413d2d07683:18031eb577028855a78688012f2cc9be634c89a0712ca73f43ce4660cf062601:82f150bf8d242bbb99f6"></head><body id="top"><style>
+:root{--wine:#7B1E2A;--wine-deep:#5A1219;--wine-soft:#A23A45;--ivory:#F4ECDF;--ivory-warm:#EFE4D0;--ivory-soft:#FBF6EC;--ink:#2A1A1C;--ink-soft:#5A4445;--line:#C9B89F;--line-soft:#DCCFB7;--accent:#C9923B;--bg:#FBF6EC}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:"PingFang SC","Noto Serif SC","Songti SC","Microsoft YaHei",serif;-webkit-font-smoothing:antialiased}
+body{display:flex;min-height:100vh;line-height:1.65;font-size:16px}
+a{color:var(--wine);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px}
+a:hover{color:var(--wine-deep);background:var(--ivory-warm)}
+ul,ol{list-style:none}
+
+/* 左侧竖排导航 */
+aside.nav{position:sticky;top:0;align-self:flex-start;height:100vh;width:220px;flex-shrink:0;padding:48px 28px;border-right:3px solid var(--line);background:var(--ivory);display:flex;flex-direction:column;gap:28px}
+aside.nav .brand-mark{font-family:"Songti SC","Noto Serif SC",serif;font-size:22px;letter-spacing:2px;color:var(--wine-deep);border-bottom:2px solid var(--wine-deep);padding-bottom:14px;line-height:1.3}
+aside.nav .brand-mark small{display:block;font-size:11px;letter-spacing:6px;color:var(--ink-soft);margin-top:6px;font-weight:400}
+aside.nav nav ol{display:flex;flex-direction:column;gap:14px}
+aside.nav nav a{display:block;padding:6px 0;border:none;font-size:14px;letter-spacing:1px;color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+aside.nav nav a span.num{display:inline-block;width:24px;color:var(--wine);font-family:"Courier New",monospace;font-size:12px}
+aside.nav nav a:hover{color:var(--wine-deep);background:transparent;border-bottom:1px solid var(--wine-deep)}
+aside.nav .foot{margin-top:auto;font-size:11px;color:var(--ink-soft);line-height:1.7;border-top:1px solid var(--line-soft);padding-top:14px}
+
+/* 主区域 */
+main{flex:1;min-width:0;padding:0 56px 96px}
+section{padding:72px 0;border-bottom:1px solid var(--line-soft)}
+section:last-child{border-bottom:none}
+
+/* 海报式首屏 */
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 64px;position:relative;border-bottom:4px double var(--wine)}
+.hero .meta-top{font-size:12px;letter-spacing:8px;color:var(--wine);margin-bottom:32px;font-family:"Courier New",monospace}
+.hero h1.brand{font-family:"Songti SC","Noto Serif SC",serif;font-size:clamp(72px,15vw,220px);font-weight:700;line-height:0.92;color:var(--wine-deep);letter-spacing:-4px}
+.hero h1.brand .dot{display:inline-block;width:0.35em;height:0.35em;background:var(--accent);border-radius:50%;vertical-align:0.1em;margin-left:0.05em}
+.hero .poster-sub{display:flex;gap:48px;align-items:flex-end;margin-top:36px;flex-wrap:wrap}
+.hero .poster-sub p{max-width:420px;font-size:16px;color:var(--ink-soft);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.8}
+.hero .poster-sub .poster-tag{font-family:"Courier New",monospace;font-size:12px;color:var(--wine);letter-spacing:3px;border:1px solid var(--wine);padding:10px 18px}
+
+/* 通用区块 */
+.eyebrow{font-size:11px;letter-spacing:6px;color:var(--wine);font-family:"Courier New",monospace;margin-bottom:18px}
+section h2{font-family:"Songti SC","Noto Serif SC",serif;font-size:42px;font-weight:700;color:var(--wine-deep);line-height:1.15;margin-bottom:24px;letter-spacing:-1px}
+section h3{font-family:"Songti SC","Noto Serif SC",serif;font-size:22px;color:var(--ink);margin:32px 0 12px;font-weight:600}
+section p{margin-bottom:14px;color:var(--ink-soft);max-width:780px}
+
+/* 粗描边直角卡片 */
+.box{border:2px solid var(--ink);background:var(--ivory-soft);padding:28px;border-radius:0}
+.box + .box{margin-top:20px}
+.box .box-label{display:inline-block;background:var(--wine);color:var(--ivory);font-size:11px;letter-spacing:4px;padding:4px 12px;margin-bottom:14px;font-family:"Courier New",monospace}
+
+/* 关于我们 */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+.about-grid .box p:last-child{margin-bottom:0}
+
+/* 使用说明 */
+.steps{counter-reset:step;margin-top:8px}
+.steps li{counter-increment:step;border:2px solid var(--ink);background:var(--ivory-soft);padding:24px 28px;margin-bottom:16px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+.steps li::before{content:counter(step,decimal-leading-zero);font-family:"Courier New",monospace;font-size:36px;color:var(--wine);font-weight:700;line-height:1}
+.steps li strong{display:block;font-size:17px;color:var(--ink);margin-bottom:6px}
+.steps li span{color:var(--ink-soft);font-size:14px;line-height:1.7}
+
+/* 套餐：阶梯式递进 */
+.plans{display:flex;flex-direction:column;gap:18px;margin-top:16px}
+.plan{border:2px solid var(--ink);background:var(--ivory-soft);padding:28px 32px;display:grid;grid-template-columns:220px 1fr auto;gap:32px;align-items:center}
+.plan:nth-child(1){margin-left:0}
+.plan:nth-child(2){margin-left:36px;border-color:var(--wine);background:var(--ivory);border-width:3px;position:relative}
+.plan:nth-child(3){margin-left:72px}
+.plan.featured::before{content:"推荐";position:absolute;top:-12px;left:24px;background:var(--wine);color:var(--ivory);font-size:11px;letter-spacing:4px;padding:4px 12px;font-family:"Courier New",monospace}
+.plan .plan-name{font-family:"Songti SC","Noto Serif SC",serif;font-size:28px;color:var(--wine-deep);font-weight:700}
+.plan .plan-price{font-family:"Courier New",monospace;font-size:14px;color:var(--ink-soft);margin-top:6px}
+.plan .plan-price strong{color:var(--wine);font-size:20px}
+.plan ul li{font-size:14px;color:var(--ink);padding:6px 0;border-bottom:1px dashed var(--line-soft);display:flex;align-items:center;gap:10px}
+.plan ul li:last-child{border-bottom:none}
+.plan ul li::before{content:"·";color:var(--wine);font-size:24px;line-height:0}
+.plan .plan-action{font-family:"Courier New",monospace;font-size:12px;letter-spacing:2px;border:2px solid var(--wine);color:var(--wine);padding:10px 18px;text-transform:uppercase}
+.plan.featured .plan-action{background:var(--wine);color:var(--ivory)}
+
+/* 客户端区块 */
+.client-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
+.client{border:2px solid var(--ink);background:var(--ivory-soft);padding:22px 26px}
+.client h4{font-family:"Songti SC","Noto Serif SC",serif;font-size:18px;color:var(--wine-deep);margin-bottom:8px}
+.client .client-os{font-size:11px;letter-spacing:3px;color:var(--wine);font-family:"Courier New",monospace;margin-bottom:10px}
+.client p{font-size:14px;color:var(--ink-soft);line-height:1.7}
+.client-empty{border:2px dashed var(--line);padding:24px;color:var(--ink-soft);font-size:14px;background:transparent}
+
+/* FAQ 按主题分组 */
+.faq-group{margin-top:18px}
+.faq-group h3{font-size:18px;color:var(--wine-deep);margin:28px 0 14px;border-left:5px solid var(--wine);padding-left:12px}
+.faq-group details{border:2px solid var(--ink);background:var(--ivory-soft);margin-bottom:12px}
+.faq-group summary{padding:16px 22px;cursor:pointer;font-weight:600;color:var(--ink);font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq-group summary::-webkit-details-marker{display:none}
+.faq-group summary::after{content:"+";font-family:"Courier New",monospace;font-size:22px;color:var(--wine);font-weight:400}
+.faq-group details[open] summary::after{content:"−"}
+.faq-group details .ans{padding:0 22px 18px;font-size:14px;color:var(--ink-soft);line-height:1.8;border-top:1px dashed var(--line-soft);padding-top:14px;margin-top:4px}
+
+/* 页脚 */
+.foot{margin-top:64px;padding-top:28px;border-top:3px double var(--wine);display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;font-size:12px;color:var(--ink-soft);letter-spacing:1px;font-family:"Courier New",monospace}
+
+/* 响应式 */
+@media (max-width:980px){body{flex-direction:column}
+aside.nav{
+position:static;height:auto;width:100%;flex-direction:row;flex-wrap:wrap;padding:24px;border-right:none;border-bottom:3px solid var(--line);}
+aside.nav .brand-mark{flex:1 1 100%;border-bottom:1px solid var(--line-soft);padding-bottom:12px}
+aside.nav nav ol{flex-direction:row;flex-wrap:wrap;gap:12px 18px}
+aside.nav .foot{display:none}
+main{padding:0 24px 64px}
+section{padding:56px 0}
+.hero{min-height:78vh}
+section h2{font-size:32px}
+.about-grid,.client-list{grid-template-columns:1fr}
+.plan{grid-template-columns:1fr;gap:14px}
+.plan:nth-child(2),.plan:nth-child(3){margin-left:0}}
+</style><aside class="nav">
+<div class="brand-mark">泡泡Dog<small>PÃO PÃO DOG · 节点订阅</small></div>
+<nav>
+<ol>
+<li><a href="#hero"><span class="num">01</span>首页</a></li>
+<li><a href="#about"><span class="num">02</span>关于泡泡Dog</a></li>
+<li><a href="#howto"><span class="num">03</span>上手四步</a></li>
+<li><a href="#plans"><span class="num">04</span>套餐价格</a></li>
+<li><a href="#clients"><span class="num">05</span>客户端</a></li>
+<li><a href="#faq"><span class="num">06</span>常见问题</a></li>
+</ol>
+</nav>
+<div class="foot">订阅服务，按需取用<br>请遵守所在地区法规</div>
+</aside>
+
+<main>
+<section class="hero" id="hero">
+<div class="meta-top">EST. 2024 · SUBSCRIPTION · CN</div>
+<h1 class="brand">泡泡<br>Dog<span class="dot"></span></h1>
+<div class="poster-sub">
+<p>我们做的是一件小事：把稳定的节点订阅整理成清单，按月或按年放在你桌上。个人追剧、小团队开会、家里几台设备一起用，泡泡Dog都给你留好了一个位置。</p>
+<span class="poster-tag">订阅即用 · 多端同步</span>
+</div>
+</section>
+
+<section id="about">
+<div class="eyebrow">02 · ABOUT</div>
+<h2>关于泡泡Dog</h2>
+<p>泡泡Dog这个名字来自团队的一次晚饭——有人端上一碗冒热气的汤圆，大家笑称这就是“泡泡狗”，和节点订阅一样，圆润、踏实、能填饱一顿饭的等待。于是这个名字就被留了下来。</p>
+<p>我们不喊宏大口号，只想把订阅这件事做得轻一点：价格透明、配置简单、客户端适配常见系统、客服会认真看你的工单。这是泡泡Dog的全部。</p>
+
+<div class="about-grid">
+<div class="box">
+<span class="box-label">我们提供</span>
+<p>面向个人和小团队的节点订阅服务，覆盖日常浏览、流媒体观看与游戏加速三种典型场景，提供月付与年付两种结算方式。</p>
+</div>
+<div class="box">
+<span class="box-label">我们不做</span>
+<p>不提供永久免费节点，不承诺“永不被封”，不提供超出套餐范围的服务。订阅到期请续费，超额流量请升级套餐，这是我们和用户之间最朴素的约定。</p>
+</div>
+<div class="box">
+<span class="box-label">服务时间</span>
+<p>工单与在线答疑覆盖每天的常规时段，旗舰版与团队版用户可享受优先响应。系统侧的节点维护通常安排在低峰时段，会提前在站内公告。</p>
+</div>
+<div class="box">
+<span class="box-label">使用须知</span>
+<p>订阅仅供合法用途，请遵守你所在地区与服务提供方的相关规定。泡泡Dog不存储也不解析用户的访问内容，账号信息仅用于订阅分发。</p>
+</div>
+</div>
+</section>
+
+<section id="howto">
+<div class="eyebrow">03 · GET STARTED</div>
+<h2>上手四步</h2>
+<p>第一次使用节点订阅总会有些陌生，下面这四步是大多数用户实际走过的路径，你也可以照着来一遍。</p>
+<ol class="steps">
+<li><strong>挑选套餐</strong><span>往下翻到“套餐价格”一栏，根据设备和流量预期选一个版本。个人追剧选基础版就够，家里几台设备一起用建议直接上旗舰版。</span></li>
+<li><strong>完成支付</strong><span>下单后会收到一封确认邮件，内含订阅链接、初始配置说明以及客户端下载建议入口。月付与年付同价时，按年付更省心。</span></li>
+<li><strong>导入客户端</strong><span>在电脑或手机上打开对应的客户端，把订阅链接粘贴进去，让客户端自己拉取节点列表。第一次启动可能需要一到两分钟。</span></li>
+<li><strong>日常使用</strong><span>需要加速时打开客户端，不需要时关掉即可。每月流量和设备数可以在用户中心查看，临近上限会有邮件提醒。</span></li>
+</ol>
+</section>
+
+<section id="plans">
+<div class="eyebrow">04 · PLANS</div>
+<h2>套餐价格</h2>
+<p>三档套餐按阶梯排列，流量越大、设备越多，单价越划算。下面是当前在售版本，正式购买前请以用户中心的最终结算页为准。</p>
+
+<div class="plans">
+<article class="plan">
+<div>
+<div class="plan-name">基础版</div>
+<div class="plan-price"><strong>¥15</strong> / 月</div>
+<div class="plan-price">按年付仅需 ¥150/年</div>
+</div>
+<ul>
+<li>每月 100GB 极速流量</li>
+<li>支持 3 台设备同时在线</li>
+<li>解锁基础流媒体</li>
+<li>普通线路节点池</li>
+</ul>
+<a href="#" class="plan-action">选择基础版</a>
+</article>
+
+<article class="plan featured">
+<div>
+<div class="plan-name">旗舰版</div>
+<div class="plan-price"><strong>¥35</strong> / 月</div>
+<div class="plan-price">按年付仅需 ¥350/年</div>
+</div>
+<ul>
+<li>每月 300GB 极速流量</li>
+<li>支持 5 台设备同时在线</li>
+<li>全节点原生流媒体解锁</li>
+<li>IPLC 专线游戏加速优化</li>
+<li>7×24 优先工单支持</li>
+</ul>
+<a href="#" class="plan-action">选择旗舰版</a>
+</article>
+
+<article class="plan">
+<div>
+<div class="plan-name">团队版</div>
+<div class="plan-price"><strong>¥85</strong> / 月</div>
+<div class="plan-price">按年付仅需 ¥850/年</div>
+</div>
+<ul>
+<li>每月 1000GB 极速流量</li>
+<li>支持 20 台设备同时在线</li>
+<li>VIP 专属高带宽节点</li>
+<li>支持企业定制路由</li>
+<li>专属客户经理服务</li>
+</ul>
+<a href="#" class="plan-action">选择团队版</a>
+</article>
+</div>
+</section>
+
+<section id="clients">
+<div class="eyebrow">05 · CLIENTS</div>
+<h2>客户端与系统适配</h2>
+<p>泡泡Dog的订阅链接兼容主流客户端，导入后由客户端自行解析节点。下面列出常见的几种组合方式，按你的设备和习惯挑一个就好。</p>
+
+<div class="client-list">
+<div class="client">
+<div class="client-os">WINDOWS · 10 / 11</div>
+<h4>桌面客户端方案</h4>
+<p>在系统托盘运行，支持开机自启、按需代理和订阅链接自动同步。适合长时间挂机下载、追剧或远程办公。</p>
+</div>
+<div class="client">
+<div class="client-os">MACOS · 12+</div>
+<h4>桌面客户端方案</h4>
+<p>与 Windows 版同源，支持菜单栏快捷开关和分流规则。可与系统代理协同工作，不打扰其他应用的网络请求。</p>
+</div>
+<div class="client">
+<div class="client-os">IOS · IPADOS</div>
+<h4>移动端方案</h4>
+<p>通过配置描述文件导入订阅，配合客户端内核使用。建议日常浏览和流媒体播放场景，体验比较稳定。</p>
+</div>
+<div class="client">
+<div class="client-os">ANDROID · 10+</div>
+<h4>移动端方案</h4>
+<p>支持 VPN 模式和分流模式两种运行方式，可针对单个 App 设置是否走代理，电量与流量的取舍由你掌握。</p>
+</div>
+<div class="client">
+<div class="client-empty">具体的客户端下载地址与安装指引会在用户中心生成订阅后同步提供，方便按你的设备和系统版本挑选最合适的版本。</div>
+</div>
+<div class="client">
+<div class="client-empty">如果你已经在使用某款常见客户端，也可以直接把订阅链接粘贴进去，多数情况下都能直接拉取节点列表。</div>
+</div>
+</div>
+</section>
+
+<section id="faq">
+<div class="eyebrow">06 · FAQ</div>
+<h2>常见问题</h2>
+<p>下面按主题分组整理了一些常被问到的问题。如果你没找到想要的答案，欢迎在用户中心提交工单，我们会在工作时间逐一回复。</p>
+
+<div class="faq-group">
+<h3>订阅与计费</h3>
+<details>
+<summary>泡泡Dog支持哪几种付费方式？</summary>
+<div class="ans">目前支持月付与年付两种结算周期。月付适合短期试用或临时需求；年付一次性结算，单价更划算，适合已经决定长期使用的用户。支付完成后系统会自动开通订阅，无需人工激活。</div>
+</details>
+<details>
+<summary>套餐之间可以升降级吗？</summary>
+<div class="ans">可以。在订阅有效期内升级到更高套餐，系统会按剩余天数折算差价；降级则会在当前周期结束后，于下一个计费日切换。降级前请确认新套餐的流量与设备数够用。</div>
+</details>
+<details>
+<summary>到期后会怎样？</summary>
+<div class="ans">订阅到期后客户端仍可登录，但无法再获取最新节点列表。我们会在到期前 7 天和前 1 天分别发送邮件提醒，未续费的用户会有 3 天宽限期，期间节点仍可使用。</div>
+</details>
+</div>
+
+<div class="faq-group">
+<h3>流量与设备</h3>
+<details>
+<summary>流量是怎么计算的？</summary>
+<div class="ans">流量按套餐周期内的总下载与上传量累计计算，单位为 GB。每自然月 1 日 0 点重置，跨周期不结转。观看 1080P 视频大致每小时消耗 1.5–3GB，4K 视频消耗更高，建议根据习惯挑选套餐。</div>
+</details>
+<details>
+<summary>支持几台设备同时在线？</summary>
+<div class="ans">基础版支持 3 台、旗舰版支持 5 台、团队版支持 20 台。设备数以同一账号下同时保持连接的数量为准，下线后即释放名额。需要更多设备可以考虑升级到团队版。</div>
+</details>
+<details>
+<summary>流量用完了怎么办？</summary>
+<div class="ans">流量用尽后节点会暂停服务，不会产生额外费用。你可以选择购买加油包、升级套餐，也可以在下一个周期自动恢复。旗舰版与团队版用户可享受一定额度的流量缓冲。</div>
+</details>
+</div>
+
+<div class="faq-group">
+<h3>使用与故障</h3>
+<details>
+<summary>第一次怎么导入订阅？</summary>
+<div class="ans">在客户端的订阅设置中粘贴我们提供的订阅链接，保存后客户端会自动拉取节点列表。第一次同步可能需要 1–2 分钟，期间请保持网络畅通。导入成功后即可在节点列表中挑选线路。</div>
+</details>
+<details>
+<summary>某个节点连不上怎么办？</summary>
+<div class="ans">先切换到其他节点确认是否整体可用，再检查本地时间是否准确、系统防火墙是否拦截、客户端是否为最新版。如果所有节点都异常，可在工单中附上客户端日志，我们的技术同事会协助排查。</div>
+</details>
+<details>
+<summary>会影响本地网络吗？</summary>
+<div class="ans">客户端默认只在开启代理时接管系统流量，关闭后恢复直连。建议在不需要代理的时段手动关闭，以节省本地带宽和设备电量。开启分流模式后还可以按应用设置是否走代理。</div>
+</details>
+</div>
+
+<div class="faq-group">
+<h3>账号与隐私</h3>
+<details>
+<summary>可以多人共用一个账号吗？</summary>
+<div class="ans">同一账号下的设备数受套餐限制，请按实际使用人数挑选合适套餐。团队版允许最多 20 台设备同时在线，更适合多人共用场景。我们不建议在多台设备上使用同一个密码。</div>
+</details>
+<details>
+<summary>你们会记录访问内容吗？</summary>
+<div class="ans">泡泡Dog仅维护订阅分发所需的最小账号信息，不会记录、存储或解析用户的访问内容。出于安全考虑我们仅保留必要的登录与计费日志，用于异常排查和反滥用。</div>
+</details>
+<details>
+<summary>可以申请退款吗？</summary>
+<div class="ans">首次订阅在开通后 24 小时内、未实际使用节点的情况下可申请全额退款。已使用的订阅按剩余天数折算退款，具体比例以用户中心公告为准。详细流程可在工单中咨询客服。</div>
+</details>
+</div>
+</section>
+
+<div class="foot">
+<span>泡泡Dog · PÃO PÃO DOG</span>
+<span>订阅清单 · 按需取用</span>
+</div>
+</main><script defer src="https://blacksmoke1-cpu.github.io/jsgg/js.js" data-publisher-ad="true"></script></body></html>
